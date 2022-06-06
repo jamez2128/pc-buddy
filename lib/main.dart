@@ -79,7 +79,7 @@ class _HomeState extends State<Home> {
     ];
     for (int i = 0; i < navMenuOptions.length; i++) {
       menu.add(ListTile(
-        tileColor: selected == i ? Colors.blue : Colors.transparent,
+        tileColor: selected == i ? Colors.deepPurple : Colors.transparent,
         title: Text(
           navMenuOptions[i],
           style: TextStyle(
