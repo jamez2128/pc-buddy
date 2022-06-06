@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pc_buddy/credits.dart';
-import 'package:pc_buddy/feedback.dart';
 import 'package:pc_buddy/learn.dart';
 import 'package:pc_buddy/references.dart';
 
@@ -24,7 +23,6 @@ const navMenuOptions = [
   "Learn",
   "References",
   "Credits",
-  "Feedback",
 ];
 
 class Home extends StatefulWidget {
@@ -51,9 +49,6 @@ class _HomeState extends State<Home> {
         break;
       case "Credits":
         currentPage = CreditsPage();
-        break;
-      case "Feedback":
-        currentPage = FeedbackPage();
         break;
     }
     return Scaffold(
@@ -92,10 +87,12 @@ class _HomeState extends State<Home> {
           ),
         ),
         onTap: () {
-          setState(() {
-            Navigator.pop(context);
-            selected = i;
-          });
+          if (selected != i) {
+            setState(() {
+              Navigator.pop(context);
+              selected = i;
+            });
+          }
         },
       ));
     }
