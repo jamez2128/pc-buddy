@@ -21,6 +21,17 @@ class MyApp extends StatelessWidget {
 }
 
 const navMenuOptions = [
+  "Introduction",
+  "Computer Case",
+  "Motherboard",
+  "CPU",
+  "RAM",
+  "Storage Devices",
+  "Cooling",
+  "PSU",
+  "Displays",
+  "Operating Systems",
+  "Input Devices",
   "References",
   "Credits",
 ];
