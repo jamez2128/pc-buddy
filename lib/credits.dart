@@ -5,11 +5,15 @@ class CreditsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-        "Credits goes here",
-      style: TextStyle(
-        color: Colors.white,
+    return SafeArea(
+      child: Container(
+
+        child: Scaffold(
+
+
+        ),
       ),
+
     );
   }
 }
