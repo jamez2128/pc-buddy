@@ -31,7 +31,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
-
     return Scaffold(
       appBar: AppBar(title: Text(appBarTitle),backgroundColor: Colors.purple),
       drawer:
@@ -39,10 +38,10 @@ class _HomeState extends State<Home> {
           backgroundColor: Color(0xff0d0029),
           child: ListView(
             children: [
-              navBarChoices("Learn"),
-              navBarChoices("Referrences"),
-              navBarChoices("Credits"),
-              navBarChoices("Feedback")
+              makeNavBar("Learn", () {}),
+              makeNavBar("Referrences", () {}),
+              makeNavBar("Credits", () {}),
+              makeNavBar("Feedback", () {})
             ],
           ),
       ),
@@ -51,10 +50,10 @@ class _HomeState extends State<Home> {
   }
 }
 
-ListTile navBarChoices(String title) {
+ListTile makeNavBar(String title, Function() action) {
   return ListTile(
     title: Text(title,
       style: TextStyle(color: Colors.white),),
-    onTap: () {print("Hello World");} ,
+    onTap: () { action(); } ,
   );
 }
