@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:pc_buddy/computer_case.dart';
+import 'package:pc_buddy/cooling.dart';
+import 'package:pc_buddy/cpu.dart';
 import 'package:pc_buddy/credits.dart';
+import 'package:pc_buddy/displays.dart';
+import 'package:pc_buddy/input_devices.dart';
+import 'package:pc_buddy/introduction.dart';
+import 'package:pc_buddy/motherboard.dart';
+import 'package:pc_buddy/operating_systems.dart';
+import 'package:pc_buddy/psu.dart';
+import 'package:pc_buddy/ram.dart';
 import 'package:pc_buddy/references.dart';
+import 'package:pc_buddy/storage_devices.dart';
 
 //TESTIONGA ACWOIJDALWUJHDLAUWHD
 
@@ -52,6 +63,39 @@ class _HomeState extends State<Home> {
     appBarTitle = navMenuOptions[selected];
     Widget currentPage = Container();
     switch (navMenuOptions[selected]) {
+      case "Introduction":
+        currentPage = IntroductionPage();
+        break;
+      case "Computer Case":
+        currentPage = ComputerCasePage();
+        break;
+      case "Motherboard":
+        currentPage = MotherboardPage();
+        break;
+      case "CPU":
+        currentPage = CPUPage();
+        break;
+      case "RAM":
+        currentPage = RAMPage();
+        break;
+      case "Storage Devices":
+        currentPage = StorageDevicesPage();
+        break;
+      case "Cooling":
+        currentPage = CoolingPage();
+        break;
+      case "PSU":
+        currentPage = PSUPage();
+        break;
+      case "Displays":
+        currentPage = DisplaysPage();
+        break;
+      case "Operating Systems":
+        currentPage = OperatingSystemsPage();
+        break;
+      case "Input Devices":
+        currentPage = InputDevicesPage();
+        break;
       case "References":
         currentPage = ReferencesPage();
         break;
