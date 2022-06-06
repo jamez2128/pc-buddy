@@ -17,6 +17,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
+const navMenuOptions = [
+  "Learn",
+  "References",
+  "Credits",
+  "Feedback",
+];
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -35,52 +42,41 @@ class _HomeState extends State<Home> {
       drawer:
         Drawer(
           backgroundColor: Color(0xff0d0029),
-          child: ListView(
-            children: navMenu()
-          ),
+          child: ListView(children: navMenu()),
       ),
       backgroundColor: Color(0xff0d0029),
     );
   }
-}
-
-var navMenuOptions = [
-  "Learn",
-  "References",
-  "Credits",
-  "Feedback",
-];
-
-List<ListTile> navMenu() {
-  List<ListTile> options = [];
-  for(int i = 0; i < navMenuOptions.length; i++) {
-    options.add(
-        ListTile(
-          title: Text(
-            navMenuOptions[i],
-            style:
-              TextStyle(
-                color: Colors.white,
-            ),
-          ),
-          onTap: () {
-            switch(navMenuOptions[i].toLowerCase()) {
-              case "learn":
-                print(navMenuOptions[i]);
-                break;
-              case "references":
-                print(navMenuOptions[i]);
-                break;
-              case "credits":
-                print(navMenuOptions[i]);
-                break;
-              case "feedback":
-                print(navMenuOptions[i]);
-                break;
-            }
-          },
-        )
-    );
+   List<ListTile> navMenu() {
+     List<ListTile> options = [];
+     for(int i = 0; i < navMenuOptions.length; i++) {
+       options.add(
+           ListTile(
+             title: Text(
+               navMenuOptions[i],
+               style:
+               TextStyle(
+                 color: Colors.white,
+               ),
+             ),
+             onTap: () {
+               setState(() {
+                 Navigator.pop(context);
+                 switch(navMenuOptions[i].toLowerCase()) {
+                   case "learn":
+                     break;
+                   case "references":
+                     break;
+                   case "credits":
+                     break;
+                   case "feedback":
+                     break;
+                 }
+               });
+             },
+           )
+       );
+     }
+     return options;
   }
-  return options;
 }
