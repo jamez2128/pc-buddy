@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pc_buddy/credits.dart';
-import 'package:pc_buddy/learn.dart';
 import 'package:pc_buddy/references.dart';
 
 //TESTIONGA ACWOIJDALWUJHDLAUWHD
