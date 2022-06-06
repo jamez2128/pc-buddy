@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
 }
 
 const navMenuOptions = [
-  "Learn",
   "References",
   "Credits",
 ];
@@ -43,9 +42,6 @@ class _HomeState extends State<Home> {
     appBarTitle = navMenuOptions[selected];
     Widget currentPage = Container();
     switch (navMenuOptions[selected]) {
-      case "Learn":
-        currentPage = LearnPage();
-        break;
       case "References":
         currentPage = ReferencesPage();
         break;
