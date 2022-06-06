@@ -48,7 +48,9 @@ class CreditsPage extends StatelessWidget {
                     color: Colors.white,
                     padding: const EdgeInsets.all(10.0),
                     child:  const Text(
-                        'Instructor'
+                        'Instructor: Ms. ANGELES, JEAN\n'
+                            'ITE010 - IT12S8 HCI',
+                      textAlign: TextAlign.center,
 
                     ),
                   )
