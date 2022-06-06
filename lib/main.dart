@@ -36,7 +36,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(title: Text(appBarTitle),backgroundColor: Colors.purple),
       drawer:
@@ -47,10 +46,12 @@ class _HomeState extends State<Home> {
       backgroundColor: Color(0xff0d0029),
     );
   }
-   List<ListTile> navMenu() {
-     List<ListTile> options = [];
+   List<Widget> navMenu() {
+     List<Widget> menu = [
+       SizedBox(height: 75.0,child: DrawerHeader(decoration: BoxDecoration(color: Colors.purple),child: Text("Main Menu", style: TextStyle(color: Colors.white,fontSize: 24.0,fontWeight: FontWeight.bold),),))
+     ];
      for(int i = 0; i < navMenuOptions.length; i++) {
-       options.add(
+       menu.add(
            ListTile(
              title: Text(
                navMenuOptions[i],
@@ -64,12 +65,16 @@ class _HomeState extends State<Home> {
                  Navigator.pop(context);
                  switch(navMenuOptions[i].toLowerCase()) {
                    case "learn":
+                      appBarTitle = navMenuOptions[i];
                      break;
                    case "references":
+                     appBarTitle = navMenuOptions[i];
                      break;
                    case "credits":
+                     appBarTitle = navMenuOptions[i];
                      break;
                    case "feedback":
+                     appBarTitle = navMenuOptions[i];
                      break;
                  }
                });
@@ -77,6 +82,6 @@ class _HomeState extends State<Home> {
            )
        );
      }
-     return options;
+     return menu;
   }
 }
