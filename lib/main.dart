@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pc_buddy/credits.dart';
+import 'package:pc_buddy/feedback.dart';
+import 'package:pc_buddy/learn.dart';
+import 'package:pc_buddy/references.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "PC Buddy",
-      theme: ThemeData(primarySwatch: Colors.purple),
-      home: const Home()
-    );
+        title: "PC Buddy",
+        theme: ThemeData(primarySwatch: Colors.purple),
+        home: const Home());
   }
 }
 
@@ -32,56 +35,70 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
- String appBarTitle = navMenuOptions[0];
+  String appBarTitle = navMenuOptions[0];
+  int selected = 0;
 
   @override
   Widget build(BuildContext context) {
+    appBarTitle = navMenuOptions[selected];
+    Widget currentPage = Container();
+    switch (navMenuOptions[selected]) {
+      case "Learn":
+        currentPage = LearnPage();
+        break;
+      case "References":
+        currentPage = ReferencesPage();
+        break;
+      case "Credits":
+        currentPage = CreditsPage();
+        break;
+      case "Feedback":
+        currentPage = FeedbackPage();
+        break;
+    }
     return Scaffold(
-      appBar: AppBar(title: Text(appBarTitle),backgroundColor: Colors.purple),
-      drawer:
-        Drawer(
-          backgroundColor: Color(0xff0d0029),
-          child: ListView(children: navMenu()),
+      appBar: AppBar(title: Text(appBarTitle), backgroundColor: Colors.purple),
+      drawer: Drawer(
+        backgroundColor: Color(0xff0d0029),
+        child: ListView(children: navMenu()),
       ),
       backgroundColor: Color(0xff0d0029),
+      body: currentPage,
     );
   }
-   List<Widget> navMenu() {
-     List<Widget> menu = [
-       SizedBox(height: 75.0,child: DrawerHeader(decoration: BoxDecoration(color: Colors.purple),child: Text("Main Menu", style: TextStyle(color: Colors.white,fontSize: 24.0,fontWeight: FontWeight.bold),),))
-     ];
-     for(int i = 0; i < navMenuOptions.length; i++) {
-       menu.add(
-           ListTile(
-             title: Text(
-               navMenuOptions[i],
-               style:
-               TextStyle(
-                 color: Colors.white,
-               ),
-             ),
-             onTap: () {
-               setState(() {
-                 Navigator.pop(context);
-                 switch(navMenuOptions[i].toLowerCase()) {
-                   case "learn":
-                      appBarTitle = navMenuOptions[i];
-                     break;
-                   case "references":
-                     appBarTitle = navMenuOptions[i];
-                     break;
-                   case "credits":
-                     appBarTitle = navMenuOptions[i];
-                     break;
-                   case "feedback":
-                     appBarTitle = navMenuOptions[i];
-                     break;
-                 }
-               });
-             },
-           )
-       );
-     }
-     return menu;
+
+  List<Widget> navMenu() {
+    List<Widget> menu = [
+      SizedBox(
+          height: 75.0,
+          child: DrawerHeader(
+            decoration: BoxDecoration(color: Colors.purple),
+            child: Text(
+              "Main Menu",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold),
+            ),
+          ))
+    ];
+    for (int i = 0; i < navMenuOptions.length; i++) {
+      menu.add(ListTile(
+        tileColor: selected == i ? Colors.blue : Colors.transparent,
+        title: Text(
+          navMenuOptions[i],
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        onTap: () {
+          setState(() {
+            Navigator.pop(context);
+            selected = i;
+          });
+        },
+      ));
+    }
+    return menu;
   }
 }
