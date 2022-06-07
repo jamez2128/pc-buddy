@@ -4,6 +4,7 @@ import 'package:pc_buddy/cooling.dart';
 import 'package:pc_buddy/cpu.dart';
 import 'package:pc_buddy/credits.dart';
 import 'package:pc_buddy/displays.dart';
+import 'package:pc_buddy/gpu.dart';
 import 'package:pc_buddy/input_devices.dart';
 import 'package:pc_buddy/introduction.dart';
 import 'package:pc_buddy/motherboard.dart';
@@ -36,6 +37,7 @@ const navMenuOptions = [
   "Computer Case",
   "Motherboard",
   "CPU",
+  "GPU",
   "RAM",
   "Storage Devices",
   "Cooling",
@@ -74,6 +76,9 @@ class _HomeState extends State<Home> {
         break;
       case "CPU":
         currentPage = CPUPage();
+        break;
+      case "GPU":
+        currentPage = GPUPage();
         break;
       case "RAM":
         currentPage = RAMPage();
