@@ -11,7 +11,7 @@ class CreditsPage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(left: 150.0, right: 150.0),
+                margin: const EdgeInsets.only(left: 50.0, right: 50.0),
                 child:Image.asset('images/LOGO_PC Buddy PNG.png',
                 ),
               ),
@@ -25,9 +25,7 @@ class CreditsPage extends StatelessWidget {
                       fontSize: 40.0,
                       fontWeight: FontWeight.bold,
                       //fontFamily: 'Audiowide',
-                      color: Colors.white
-
-                  ),),
+                      color: Colors.white),),
               ),
 
               Container(
