@@ -49,6 +49,7 @@ const navMenuOptions = [
   "Credits",
 ];
 
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -59,9 +60,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   String appBarTitle = navMenuOptions[0];
   int selected = 0;
+  double navScrollState = 0;
+  ScrollController navScroll = ScrollController();
 
   @override
   Widget build(BuildContext context) {
+    navScroll = ScrollController(initialScrollOffset: navScrollState);
     appBarTitle = navMenuOptions[selected];
     Widget currentPage = Container();
     switch (navMenuOptions[selected]) {
@@ -112,7 +116,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(title: Text(appBarTitle), backgroundColor: Colors.purple),
       drawer: Drawer(
         backgroundColor: Color(0xff0d0029),
-        child: ListView(children: navMenu()),
+        child: ListView(controller: navScroll,children: navMenu(),),
       ),
       backgroundColor: Color(0xff0d0029),
       body: currentPage,
@@ -144,9 +148,10 @@ class _HomeState extends State<Home> {
           ),
         ),
         onTap: () {
+          Navigator.pop(context);
           if (selected != i) {
             setState(() {
-              Navigator.pop(context);
+              navScrollState = navScroll.offset;
               selected = i;
             });
           }
